@@ -37,6 +37,25 @@ public class _11Bst{
         inorder(root.right);
     }
 
+    /*search in the bst */
+    public static boolean search(Node root, int key){
+        if(root == null){
+            return false;
+        }
+
+        if(root.data == key){
+            return true;
+        }
+
+        if(root.data > key){
+            return search(root.left, key);
+        }
+
+        else{
+            return search(root.right, key);
+        }
+    }
+
     public static void main(String args[]){
 
         /*
@@ -58,5 +77,12 @@ public class _11Bst{
 
         inorder(root);
         System.out.println();
+
+        if(search(root, 6)){
+            System.out.println("key is found");
+        }
+        else{
+            System.out.println("key is not found");
+        }
     }
 }
