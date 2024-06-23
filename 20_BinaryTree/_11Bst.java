@@ -102,6 +102,32 @@ public class _11Bst{
         return root;
      }
 
+
+     /*Range between two nodes */
+     public static void printInRange(Node root, int k1, int k2){
+        //base case
+        if(root == null){
+            return;
+        }
+
+        /*case -1 => k1 <= root <= k2 */
+        if(root.data >= k1 && root.data <= k2){
+            printInRange(root.left, k1, k2);
+            System.out.print(root.data + " ");
+            printInRange(root.right, k1, k2);
+        }
+
+        //case -2 => root > k1  i.e all elements are present in the right side
+        else if(root.data > k1){
+            printInRange(root.right, k1, k2);
+        }
+
+        //case -3 => root < k1 value are in the left side
+        else{
+            printInRange(root.left, k1, k2);
+        }
+     }
+
     public static void main(String args[]){
 
         /*
@@ -133,12 +159,19 @@ public class _11Bst{
 
 
         //deleat node 
-        inorder(root);
-        System.out.println();
+        // inorder(root);
+        // System.out.println();
 
-        root = deleat(root, 5);
-        System.out.println();
+        // root = deleat(root, 5);
+        // System.out.println();
+        // inorder(root);
+        // System.out.println();
+
+
+        /*print the range */
         inorder(root);
+        System.out.println();
+        printInRange(root, 5, 12);
         System.out.println();
     }
 }
