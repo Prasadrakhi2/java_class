@@ -1,31 +1,31 @@
 /* Iterative method*/ 
-// import java.util.*;
-// public class binarySearch{
+import java.util.*;
+public class binarySearch{
 
-//     public static int binarysearch(int a[], int si, int ei, int key){
-//         while(si <= ei){
-//             int mid = (si + ei)/2;
-//             if(a[mid] == key){
-//                 return mid;
-//             }
-//             else if(key < a[mid]){
-//                 ei = mid-1;
-//             }
-//             else{
-//                 si = mid + 1;
-//             }
-//         }
-//         return -1;
-//     }
+    public static int binarysearch(int a[], int si, int ei, int key){
+        while(si <= ei){
+            int mid = (si + ei)/2;
+            if(a[mid] == key){
+                return mid;
+            }
+            else if(key < a[mid]){
+                ei = mid-1;
+            }
+            else{
+                si = mid + 1;
+            }
+        }
+        return -1;
+    }
 
 
-//     public static void main(String args[]){
-//         int a[] = {11,12,13,14,15,16,17};
-//         // int key = 11;
+    public static void main(String args[]){
+        int a[] = {11,12,13,14,15,16,17};
+        // int key = 11;
 
-//         System.out.println(binarysearch(a, 0,a.length-1, 15));
-//     }
-// }
+        System.out.println(binarysearch(a, 0,a.length-1, 15));
+    }
+}
 
 
 /* Recursive method*/
