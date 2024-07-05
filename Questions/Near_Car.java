@@ -4,26 +4,26 @@
  */
 
 //1.by normal array mathod
-// import java.util.*;
-// public class Near_Car{
+import java.util.*;
+public class Near_Car{
 
-//     public static void main(String args[]){
-//         // int ptn[][] = {{3,3},{5,-1},{-2,4}};  //point of 'x' axis and 'y' axis
-//         int ax[] = {3,5,-2};
-//         int ay[] = {3,-1,4};
-//         int k = 2;
+    public static void main(String args[]){
+        // int ptn[][] = {{3,3},{5,-1},{-2,4}};  //point of 'x' axis and 'y' axis
+        int ax[] = {3,5,-2};
+        int ay[] = {3,-1,4};
+        int k = 2;
 
-//         int dis[] = new int[ax.length];
-//         for(int i = 0; i < ax.length ; i++){
-//             dis[i] = (ax[i]*ax[i]) + (ay[i]*ay[i]);
-//         }
+        int dis[] = new int[ax.length];
+        for(int i = 0; i < ax.length ; i++){
+            dis[i] = (ax[i]*ax[i]) + (ay[i]*ay[i]);
+        }
 
-//         Arrays.sort(dis);
-//         for(int i=0 ; i<k; i++){
-//             System.out.println("c" + i);
-//         }
-//     }
-// }
+        Arrays.sort(dis);
+        for(int i=0 ; i<k; i++){
+            System.out.println("c" + i);
+        }
+    }
+}
 
 
 //2. using priority queue
