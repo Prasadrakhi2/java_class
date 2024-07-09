@@ -8,7 +8,7 @@ public class _03Implimentation{
             V value;
 
             //constructor
-            @SuppressWarnings("unchecked")
+            // @SuppressWarnings("unchecked")
             public Node(K key, V value){
                 this.key = key;
                 this.value = value;
@@ -30,10 +30,11 @@ public class _03Implimentation{
         }
 
         //hash function
+        @SuppressWarnings(unchecked)
         public int hashFunction(K key){
             int hc = key.hashCode();  // provid the hash code for the key value
             //hc given value can be +ve or -ve so we take the |x| absolute value
-            return Math.abs(hs) % buckets.length;  // abs can be more then size so take %4 so it is between 0-3
+            return Math.abs(hc) % N;  // abs can be more then size so take %4 so it is between 0-3
             
         }
 
@@ -77,18 +78,18 @@ public class _03Implimentation{
         //put function
         public void put(K key, V value){
             int bi = hashFunction(key);  //0 to 3  => bucket index
-            int di = SearchInLL(key); //valed; -1  => sech the valed index int the linked list
+            int di = SearchInLL(key,bi); //valed; or -1  => sech the valed index int the linked list
 
             if(di != -1){
-                Node node = buckets[bi].get(i);
+                Node node = buckets[bi].get(di);
                 node.value = value;
             }
             else{
-                buckets[bi].add(new Node(key,vale));
+                buckets[bi].add(new Node(key,value));
                 n++;
             }
             double lamda = (double)n/N;
-            if(lamda > 2.0){
+            if(lamda > 2.0){   //2.0 => threashold value(maximum value)
                 rehash();
             }
         }
@@ -96,7 +97,7 @@ public class _03Implimentation{
         //check for containes key
         public boolean containsKey(K key){
             int bi = hashFunction(key);  //0 to 3  => bucket index
-            int di = SearchInLL(key); //valed; -1  => sech the valed index int the linked list
+            int di = SearchInLL(key,bi); //valed; -1  => sech the valed index int the linked list
 
             if(di != -1){
                 return true;
@@ -109,10 +110,10 @@ public class _03Implimentation{
         //get function
         public V get(K key){
             int bi = hashFunction(key);  //0 to 3  => bucket index
-            int di = SearchInLL(key); //valed; -1  => sech the valed index int the linked list
+            int di = SearchInLL(key,bi); //valed; -1  => sech the valed index int the linked list
 
             if(di != -1){
-                Node node = buckets[bi].get(i);
+                Node node = buckets[bi].get(di);
                 return node.value;
             }
             else{
@@ -121,12 +122,12 @@ public class _03Implimentation{
         }
 
         //remove function
-        public V remove(k key){
+        public V remove(k key,V value){
             int bi = hashFunction(key);  //0 to 3  => bucket index
-            int di = SearchInLL(key); //valed; -1  => sech the valed index int the linked list
+            int di = SearchInLL(key,bi); //valed; -1  => sech the valed index int the linked list
 
             if(di != -1){
-                Node node = buckets[bi].remove(i);
+                Node node = buckets[bi].remove(di);
                 n--;   //size will decreas after rmoving the element
                 node.value = value;
             }

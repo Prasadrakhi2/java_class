@@ -16,7 +16,9 @@ public class _02Iterate{
         for(String i : keys){
             System.out.println("keys = " + i + " , values = " + hm.get(i));
         }
-    }
 
-    //3. EnterySet method are also use for iteration
+        
+        //3. EnterySet method are also use for iteration
+        System.out.println(hm.entrySet());
+    }
 }
