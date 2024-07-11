@@ -1,5 +1,12 @@
-/* */
+/* "given two strings 's' and 't' , return rtrue if an anagram of 's",and false otherwise.
+ * An anagram is a word or phrase formad by rearranging the letters of a diffrent word or phrase, typically using all the original letters exactly once;
+ * 
+ * ex=> s=race , t=care  = true
+ *      s=tulip, t=lipid  = false
+ */
 
+
+ /*on charecter */
 import java.util.*;
 public class Valid_Anagram{
     public static void main(String args[]){
@@ -42,10 +49,14 @@ public class Valid_Anagram{
 
 
 
+/*on string */
 import java.util.*;
 public class Valid_Anagram{
 
     public static boolean isvalidAngram(String s, String t){
+        if(s.length()!=t.length()){
+            return false;
+        }
         HashMap<Character,Integer> map = new HashMap<>();
 
         //store
@@ -78,7 +89,7 @@ public class Valid_Anagram{
 
     public static void main(String args[]){
         String s ="race";
-        String t ="chre";
+        String t ="care";
 
         System.out.println(isvalidAngram(s, t));
 
