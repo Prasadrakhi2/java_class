@@ -1,3 +1,5 @@
+/* Null is not allowed */
+
 import java.util.*;
 public class _09TreeSet{
     public static void main(String args[]){
@@ -7,6 +9,11 @@ public class _09TreeSet{
         lhs.add("pakistan");
         lhs.add("bhutan");
 
-        System.out.println(lhs);
+        // System.out.println(lhs);
+
+        Iterator it = lhs.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
 }
