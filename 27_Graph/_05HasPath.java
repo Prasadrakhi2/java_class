@@ -1,8 +1,6 @@
 // DFS => depth first search (stack) => go to 1st neighbour
-// O(V+E)
-
 import java.util.*;
-public class _04DFS{
+public class _05HasPath{
 
      // class of graph
      public static class Edge{
@@ -73,12 +71,37 @@ public class _04DFS{
     }
 
 
+    // has path
+    @SuppressWarnings("unchecked")
+    public static boolean hasPath(ArrayList<Edge> graph[], int src, int des, boolean vist[]){
+        if(src == des){
+            return true;
+        }
+
+        vist[src] = true;
+
+        //check if neighbour has path
+        for(int i=0; i<graph[src].size(); i++){
+            Edge e = graph[src].get(i);
+
+            if(!vist[e.destination] && hasPath(graph, e.destination,  des, vist)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
     @SuppressWarnings("unchecked")
     public static void main(String args[]){
         int V = 7;
         ArrayList<Edge>[] graph = new ArrayList[V];
         c_graph(graph);
-        dfs(graph, 0, new boolean[V]);
+        // dfs(graph, 0, new boolean[V]);
+        System.out.println(hasPath(graph, 0, 5, new boolean[V]));
+        System.out.println(hasPath(graph, 0, 7, new boolean[V]));
         System.out.println();
     }
 }

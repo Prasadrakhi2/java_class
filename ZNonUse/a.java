@@ -1,59 +1,89 @@
-// import java.util.*;
-// public class a{
-//     public static void main(String args[]){
-//         Scanner sc = new Scanner(System.in);
-//         ArrayList<Integer> list1 = new ArrayList<>();
-//         ArrayList<Integer> list2 = new ArrayList<>();
-
-//         list1.add(1);
-//         list1.add(2);
-//         list1.add(4);
-
-//         System.out.println(list1);
-
-//         list2.add(1);
-//         list2.add(3);
-//         list2.add(4);
-
-//         System.out.println(list2);
-//         list1.addAll(list2);
-//         System.out.println(Collections.sort(list1));
-
-//     }
-// }
-
+// DFS => depth first search (stack) => go to 1st neighbour
 import java.util.*;
-public class a{
+public class _04DFS{
 
-    public static void print(int a[]){
-        for(int i=0; i<a.length; i++){
-            System.out.print(a[i] + " ");
+     // class of graph
+     public static class Edge{
+        int source;
+        int destination;
+        int weight;
+
+        // constructor
+        public Edge(int s, int d, int w){
+            this.source = s;
+            this.destination = d;
+            this.weight = w;
         }
     }
+    
+    /*
+                  1 - - - 3        
+                /         | \
+              /           |   \
+            0             |     5 - - 6
+              \           |   /
+                \         | /
+                  2 - - - 4 
+     */
 
-    public static void rev(int a[], int si, int ei){
-        while(si<=ei){
-            int temp = a[si];
-            a[si] = a[ei];
-            a[ei] = temp;
-            si++;
-            ei--;
+    //construct a graph
+    @SuppressWarnings("unchecked")
+    public static void c_graph(ArrayList<Edge> graph[]){
+        for(int i=0; i<graph.length; i++){
+            graph[i] = new ArrayList<>();
         }
+
+        graph[0].add(new Edge(0, 1, 1));
+        graph[0].add(new Edge(0, 2, 1));
+
+        graph[1].add(new Edge(1, 0, 1));
+        graph[1].add(new Edge(1, 3, 1));
+
+        graph[2].add(new Edge(2, 0, 1));
+        graph[2].add(new Edge(2, 4, 1));
+
+        graph[3].add(new Edge(3, 1, 1));
+        graph[3].add(new Edge(3, 4, 1));
+        graph[3].add(new Edge(3, 5, 1));
+
+        graph[4].add(new Edge(4, 2, 1));
+        graph[4].add(new Edge(4, 3, 1));
+        graph[4].add(new Edge(4, 5, 1));
+
+        graph[5].add(new Edge(5, 3, 1));
+        graph[5].add(new Edge(5, 4, 1));
+        graph[5].add(new Edge(5, 6, 1));
+
+        graph[6].add(new Edge(6, 5, 1));
     }
 
+    @SuppressWarnings("unchecked")
+    public static boolean dfs(ArrayList<Edge> graph[], int curr, boolean vist[], int des){
+        if(curr == des){
+            return true;
+            break;
+        }
+        else{
+            System.out.print(curr + " ");
+        vist[curr] = true;
+
+        for(int i=0; i<graph[curr].size(); i++){
+            Edge e = graph[curr].get(i);
+            if(!vist[e.destination]){
+                dfs(graph, e.destination, vist,des);
+            }
+        }
+        }
+        return false;
+    }
+
+
+    @SuppressWarnings("unchecked")
     public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter size");
-        int n = sc.nextInt();
-
-        int a[] = new int[n];
-        System.out.println("enter the element");
-        for(int i=0; i<n; i++){
-            a[i] = sc.nextInt();
-        }
-
-        rev(a, 0, n-1);
-        print(a);
-
+        int V = 7;
+        ArrayList<Edge>[] graph = new ArrayList[V];
+        c_graph(graph);
+        System.out.println( dfs(graph, 0, new boolean[V],5));
+        System.out.println();
     }
 }
