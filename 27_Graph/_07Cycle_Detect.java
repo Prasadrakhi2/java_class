@@ -1,47 +1,5 @@
-// // Scanner sc = new Scanner(System.in);
-// // 		int n=sc.nextInt();
-// // 		for(int i=0; i<n; i++){
-// // 		    int a = sc.nextInt();
-// // 			System.out.println((a<=b)?"YES":"NO");
-		    
-// // 		}
-
-
-// import java.util.*;
-// import java.lang.*;
-// import java.io.*;
-
-// class a
-// {
-// 	public static void main (String[] args) throws java.lang.Exception
-// 	{
-// 		// your code goes here
-// 		Scanner sc = new Scanner(System.in);
-// 	    // int n=sc.nextInt();
-// 	    // for(int i=0; i<n; i++){
-// 	        int x = sc.nextInt();
-// 	        int rev =0;
-// 	        int rem = 0;
-// 	        while(x>0){
-// 	            rem = x%10;
-// 	            rev = rev*10+rem;
-// 	            x/=10;
-// 	        }
-// 	        System.out.println(rev);
-// 	    // }
-
-// 	}
-// }
-
-
-
-
-
-// DFS => depth first search (stack) => go to 1st neighbour
-// O(V+E)
-
 import java.util.*;
-public class a{
+public class _07Cycle_Detect{
 
      // class of graph
      public static class Edge{
@@ -70,10 +28,10 @@ public class a{
         graph[0].add(new Edge(0, 3));
 
         graph[1].add(new Edge(1, 0));
-        // graph[1].add(new Edge(1, 2));
+        graph[1].add(new Edge(1, 2));
 
         graph[2].add(new Edge(2, 0));
-        // graph[2].add(new Edge(2, 1));
+        graph[2].add(new Edge(2, 1));
 
         graph[3].add(new Edge(3, 0));
         graph[3].add(new Edge(3, 4));
