@@ -1,31 +1,41 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+// Scanner sc = new Scanner(System.in);
+// 		int n =sc.nextInt();
+// 		for(int i=0; i<n; i++){
+// 		    int a = sc.nextInt();
+		    
+// 		}
 
-class Codechef
-{
-	public static boolean is(int n , int x, int a[]){
-		for(int i=0; i<n; i++){
-			if(a[i]==x){
-				return true;
-			}
-		}
-		return false;
-	}
 
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		// your code goes here
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int x = sc.nextInt();
-		int a[] = new int[n];
-		for(int i=0; i<n; i++){
-		    a[i] = sc.nextInt();
-		}
-		
-		    System.out.println((is(n,x,a)==true)? "yes":"no");
-		
+import java.util.Scanner;
 
-	}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+
+        while (t-- > 0) {
+            int n = scanner.nextInt();
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            int[] a = new int[n];
+            int t_sum = 0;
+            int d_sum = 0;
+
+            for (int i = 0; i < n; i++) {
+                a[i] = scanner.nextInt();
+                t_sum += a[i];
+            }
+            // Your code goes here
+            for(int i=0; i<n; i++){
+                if(a[i]>y){
+					a[i] = a[i]-y;
+				}
+				else{
+					a[i] = 0;
+				}
+                d_sum += a[i];
+            }
+            System.out.println((d_sum+x<t_sum)?"coupon":"no coupon");
+        }
+    }
 }
