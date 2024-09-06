@@ -5,37 +5,26 @@
 		    
 // 		}
 
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-import java.util.Scanner;
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for(int i=0; i<t; i++){
+		    int w1 = sc.nextInt();
+		    int w2 = sc.nextInt();
+		    int x1 = sc.nextInt();
+		    int x2 = sc.nextInt();
+		    int m = sc.nextInt();
+		    
+		    System.out.println((w2-w1 >= x1*x2 && w2-w1 <= x2*m)?1:0);
+		}
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
-
-        while (t-- > 0) {
-            int n = scanner.nextInt();
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
-            int[] a = new int[n];
-            int t_sum = 0;
-            int d_sum = 0;
-
-            for (int i = 0; i < n; i++) {
-                a[i] = scanner.nextInt();
-                t_sum += a[i];
-            }
-            // Your code goes here
-            for(int i=0; i<n; i++){
-                if(a[i]>y){
-					a[i] = a[i]-y;
-				}
-				else{
-					a[i] = 0;
-				}
-                d_sum += a[i];
-            }
-            System.out.println((d_sum+x<t_sum)?"coupon":"no coupon");
-        }
-    }
+	}
 }
