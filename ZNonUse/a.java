@@ -5,6 +5,29 @@
 		    
 // 		}
 
+// import java.util.*;
+// import java.lang.*;
+// import java.io.*;
+
+// class Codechef
+// {
+// 	public static void main (String[] args) throws java.lang.Exception
+// 	{
+// 		// your code goes here
+// 		Scanner sc = new Scanner(System.in);
+// 		int t = sc.nextInt();
+// 		for(int i=0; i<t; i++){
+// 		    int x = sc.nextInt();
+// 		    int y = sc.nextInt();
+		    
+		    
+// 		    System.out.println(Math.max(((500-(x*2))+(1000-((y+x)*4))), ((1000-(y*4))+(500-((x+y)*2)))));
+// 		}
+
+// 	}
+// }
+
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -15,15 +38,11 @@ class Codechef
 	{
 		// your code goes here
 		Scanner sc = new Scanner(System.in);
-		int t = sc.nextInt();
-		for(int i=0; i<t; i++){
-		    int w1 = sc.nextInt();
-		    int w2 = sc.nextInt();
-		    int x1 = sc.nextInt();
-		    int x2 = sc.nextInt();
-		    int m = sc.nextInt();
-		    
-		    System.out.println((w2-w1 >= x1*x2 && w2-w1 <= x2*m)?1:0);
+		int n =sc.nextInt();
+		for(int i=0; i<n; i++){
+		    int u = sc.nextInt();
+		    int v = sc.nextInt();
+		    System.out.println((u==v)?1:3);
 		}
 
 	}

@@ -22,6 +22,16 @@
         }
     }
 
+     /*
+     *          5                   4
+     *          | \               / |
+                |    \         /    |
+                |       \ > </      |
+                |         0         |
+                |                   |
+                >                   >
+                2 - - - > 3 - - - > 1 
+*/
 
     @SuppressWarnings("unchecked")
     public static void c_graph(ArrayList<Edge>[] graph){

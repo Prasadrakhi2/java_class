@@ -20,6 +20,18 @@
     }
 
 
+    /*
+     *          5                   4
+     *          | \               / |
+                |    \         /    |
+                |       \ > </      |
+                |         0         |
+                |                   |
+                >                   >
+                2 - - - > 3 - - - > 1 
+*/
+
+
     @SuppressWarnings("unchecked")
     public static void c_graph(ArrayList<Edge>[] graph){
         for(int i=0; i<graph.length; i++){
