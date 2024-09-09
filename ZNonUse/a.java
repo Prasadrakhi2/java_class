@@ -27,7 +27,6 @@
 // 	}
 // }
 
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -38,11 +37,28 @@ class Codechef
 	{
 		// your code goes here
 		Scanner sc = new Scanner(System.in);
-		int n =sc.nextInt();
-		for(int i=0; i<n; i++){
-		    int u = sc.nextInt();
-		    int v = sc.nextInt();
-		    System.out.println((u==v)?1:3);
+		int t=sc.nextInt();
+		for(int i=0; i<t; i++){
+			int a = sc.nextInt();
+			int x = sc.nextInt();
+			int b = sc.nextInt();
+			int y = sc.nextInt();
+			
+			if(a>=x && b>=y){
+		         System.out.println((a/x != b/y)?((a/x<b/y)?"bob":"alice"):"equal");
+			    
+			}
+		    
+		    else if(a<x && b<y){
+		        System.out.println((x/a != y/b)?((x/a>y/b)?"bob":"alice"):"equal");
+		    }
+		    
+		    else if(a>x && b<y){
+		         System.out.println((a/x != y/b)?((a/x<y/b)?"bob":"alice"):"equal");
+		    }
+		    else if(a<x && b>y){
+		         System.out.println((x/a != b/y)?((x/a>b/y)?"bob":"alice"):"equal");
+		    }
 		}
 
 	}
