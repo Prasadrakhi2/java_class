@@ -1,3 +1,6 @@
+// Insertion sort => place element at its position
+// O(n)
+
 
 import java.util.*;
 public class _03Insertion_Sort{
